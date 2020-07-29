@@ -205,12 +205,16 @@ function getAverageWordLength(){
     var averageWordsCount = 0 ;
     for (i = 0; i < originalFlavors.length; i++){
         if (originalFlavors[i].includes(" ")) {
-            averageWordsCount = averageWordsCount + 2
+            var wordFlavor = originalFlavors[i];
+            console.log(wordFlavor);
+            var flavorSpaces = (wordFlavor.split(" ").length);
+            console.log(flavorSpaces);
+            var averageWordsCount = averageWordsCount + flavorSpaces;
         } else {
             averageWordsCount++;
         }
-        console.log(averageWordsCount);
     }
+    console.log("=>", averageWordsCount);
     console.log("The average number of words per item in this array is", averageWordsCount / originalFlavors.length)
 }
 
