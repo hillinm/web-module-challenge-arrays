@@ -300,6 +300,29 @@ var regionalFlavors = ["Pink Bubblegum",
 
 function getRandomFlavors(/*code here*/){
 
-    /*code here*/
+    var randomFlavors = [];
+    var randomArrays = ["originalFlavors", "newFlavors", "seasonalFlavors", "regionalFlavors"]
 
+    for (i = 0; i < 31; i++) {
+        var item = Math.floor(Math.random() * 31);
+
+        var flavorArray = Math.floor(Math.random() * 4);
+        console.log(flavorArray)
+        if (flavorArray === 0 && item < originalFlavors.length){
+            randomFlavors.push(originalFlavors[item]);
+        } else if (flavorArray === 1  && item < newFlavors.length ) {
+            randomFlavors.push(newFlavors[item]);
+        } else if (flavorArray === 2 && item < seasonalFlavors.length ) {
+            randomFlavors.push(seasonalFlavors[item]);
+        } else if (flavorArray === 3 && item < regionalFlavors.length) {
+            randomFlavors.push(regionalFlavors[item]);
+        } else {
+            randomFlavors.push(originalFlavors[5]);
+        }
+    }
+
+    console.log(randomFlavors.length, randomFlavors);
 }
+
+
+getRandomFlavors();
