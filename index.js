@@ -40,9 +40,9 @@ To save you from having to count the items above, you can assume that length of 
 
 i.e. is31Flavors(originalFlavors) will return TRUE.*/
 
-function is31Flavors(i){
-    console.log(i.length);
-    if (i.length === 31) {
+function is31Flavors(a){
+    console.log(a.length);
+    if (a.length === 31) {
         console.log(true);
     } else {
         console.log(false);
@@ -61,7 +61,7 @@ Your function should add the flavor to the front of the array and console.log th
 
 For example addFlavor("Rainbow Sherbert", originalFlavors) should return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"] */ 
 
-function addFlavor(originalFlavors, i){
+function addFlavor(a, i){
 
     originalFlavors.unshift(i);
     console.log(originalFlavors.length, originalFlavors);
@@ -81,9 +81,9 @@ Your function should remove a flavor from the end of the array and console.log t
 
 For example removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]*/ 
 
-function removeLastFlavor(i){
+function removeLastFlavor(a){
 
-    i.pop();
+    a.pop();
     console.log(originalFlavors.length, originalFlavors);
 
 }
@@ -98,9 +98,9 @@ Your function should accept:
 
 For example, getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully. */
 
-function getFlavorByIndex(originalFlavors, i){
+function getFlavorByIndex(a, i){
 
-    console.log(originalFlavors[i]);
+    console.log(a[i]);
 
 }
 
@@ -119,12 +119,12 @@ Hint: You can use .splice() for this
 
 */
 
-function removeFlavorByName(originalFlavors, i){
+function removeFlavorByName(a, i){
 
-    console.log(originalFlavors.indexOf(i));
-    flavorIndex = originalFlavors.indexOf(i);
-    originalFlavors.splice(flavorIndex, 1);
-    console.log(originalFlavors.length, originalFlavors);
+    console.log(a.indexOf(i));
+    flavorIndex = a.indexOf(i);
+    a.splice(flavorIndex, 1);
+    console.log(a.length, a);
 
 }
 
@@ -139,16 +139,15 @@ Your function should accept:
 
 and should return a new array that is identical to the old array. You can name the new array however you'd like. */
 
-console.log(originalFlavors)
 var originalFlavorsTwo = [...originalFlavors];
 
-function copy(originalFlavors, i){
+function copy(a, i){
 
-    originalFlavorsTwo.shift("Rainbow Sherbert");
-    originalFlavorsTwo.push("Vanilla Burnt Almond");
-    originalFlavorsTwo.splice(14, 0, 'Eggnog');
-    console.log("Original Array", originalFlavorsTwo.length, originalFlavorsTwo);
-    console.log("New Array", originalFlavors.length, originalFlavors);
+    i.shift("Rainbow Sherbert");
+    i.push("Vanilla Burnt Almond");
+    i.splice(14, 0, 'Eggnog');
+    console.log("Original Array", a.length, a);
+    console.log("New Array", i.length, i);
 }
 copy(originalFlavors, originalFlavorsTwo);
 
@@ -168,16 +167,16 @@ DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem.
 
 hint - you can use the .includes method to help you solve this */
 
-function filterByWord(originalFlavors, i){
+function filterByWord(a, i){
 
     var chocolateOriginalFlavors = [];
-    console.log(originalFlavors.includes(i));
+    console.log(a.includes(i));
     
-    for (x = 0; x < originalFlavors.length; x++) {
-        console.log(originalFlavors[x]);
-        console.log(originalFlavors[x].includes(i));
-        if (originalFlavors[x].includes(i) === true) {
-            var match = originalFlavors[x];
+    for (x = 0; x < a.length; x++) {
+        console.log(a[x]);
+        console.log(a[x].includes(i));
+        if (a[x].includes(i) === true) {
+            var match = a[x];
             chocolateOriginalFlavors.push(match);
         } else {
         }
@@ -200,12 +199,12 @@ and should return the average number of words per item in the array.
 
 For example, getAverageWordLength(originalFlavors) should return a number between 0 and 3. */
 
-function getAverageWordLength(originalFlavors){
+function getAverageWordLength(a){
 
     var averageWordsCount = 0 ;
-    for (i = 0; i < originalFlavors.length; i++){
-        if (originalFlavors[i].includes(" ")) {
-            var wordFlavor = originalFlavors[i];
+    for (i = 0; i < a.length; i++){
+        if (a[i].includes(" ")) {
+            var wordFlavor = a[i];
             console.log(wordFlavor);
             var flavorSpaces = (wordFlavor.split(" ").length);
             console.log(flavorSpaces);
@@ -302,7 +301,7 @@ var regionalFlavors = ["Pink Bubblegum",
     "Chocolate Chocolate Chip Cheesecake",
     "Caramel 'n' Cookies"]
 
-function getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors){
+function getRandomFlavors(a, b, c, d){
 
     var randomFlavors = [];
     var randomArrays = ["originalFlavors", "newFlavors", "seasonalFlavors", "regionalFlavors"]
@@ -312,14 +311,14 @@ function getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regional
 
         var flavorArray = Math.floor(Math.random() * 4);
         console.log(flavorArray)
-        if (flavorArray === 0 && item < originalFlavors.length){
-            randomFlavors.push(originalFlavors[item]);
-        } else if (flavorArray === 1  && item < newFlavors.length ) {
-            randomFlavors.push(newFlavors[item]);
-        } else if (flavorArray === 2 && item < seasonalFlavors.length ) {
-            randomFlavors.push(seasonalFlavors[item]);
-        } else if (flavorArray === 3 && item < regionalFlavors.length) {
-            randomFlavors.push(regionalFlavors[item]);
+        if (flavorArray === 0 && item < a.length){
+            randomFlavors.push(a[item]);
+        } else if (flavorArray === 1  && item < b.length ) {
+            randomFlavors.push(b[item]);
+        } else if (flavorArray === 2 && item < c.length ) {
+            randomFlavors.push(c[item]);
+        } else if (flavorArray === 3 && item < d.length) {
+            randomFlavors.push(d[item]);
         } else {
             randomFlavors.push(originalFlavors[5]);
         }
