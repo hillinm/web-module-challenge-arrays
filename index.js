@@ -61,14 +61,14 @@ Your function should add the flavor to the front of the array and console.log th
 
 For example addFlavor("Rainbow Sherbert", originalFlavors) should return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"] */ 
 
-function addFlavor(i){
+function addFlavor(originalFlavors, i){
 
     originalFlavors.unshift(i);
     console.log(originalFlavors.length, originalFlavors);
 
 }
 
-addFlavor("Rainbow Sherbert");
+addFlavor(originalFlavors, "Rainbow Sherbert");
 
 
 /* Task 3: Houston, we have a problem! There are now 32 flavors in the array! Your task is to remove an item from the end of the array. 
@@ -98,7 +98,7 @@ Your function should accept:
 
 For example, getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully. */
 
-function getFlavorByIndex(i){
+function getFlavorByIndex(originalFlavors, i){
 
     console.log(originalFlavors[i]);
 
@@ -119,7 +119,7 @@ Hint: You can use .splice() for this
 
 */
 
-function removeFlavorByName(i){
+function removeFlavorByName(originalFlavors, i){
 
     console.log(originalFlavors.indexOf(i));
     flavorIndex = originalFlavors.indexOf(i);
@@ -128,7 +128,7 @@ function removeFlavorByName(i){
 
 }
 
-removeFlavorByName("Eggnog");
+removeFlavorByName(originalFlavors, "Eggnog");
 
 
 /* Task 6: With all of these changes going on, we don't want to lose track of the actual, original 31 flavors. Write a function called copy that makes a copy of the array. 
@@ -140,17 +140,17 @@ Your function should accept:
 and should return a new array that is identical to the old array. You can name the new array however you'd like. */
 
 console.log(originalFlavors)
+var originalFlavorsTwo = [...originalFlavors];
 
-function copy(/*code here*/){
+function copy(originalFlavors, i){
 
-    var originalFlavorsTwo = [...originalFlavors];
     originalFlavorsTwo.shift("Rainbow Sherbert");
     originalFlavorsTwo.push("Vanilla Burnt Almond");
     originalFlavorsTwo.splice(14, 0, 'Eggnog');
     console.log("Original Array", originalFlavorsTwo.length, originalFlavorsTwo);
     console.log("New Array", originalFlavors.length, originalFlavors);
 }
-copy();
+copy(originalFlavors, originalFlavorsTwo);
 
 
 /* Task 7: July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. Write a function that checks every item in the array for a given string and returns a new array called filteredArray with just these values. Rather than hardcoding "chocolate" into your function, pass a string as a parameter, and invoke with the argument "chocolate". This way you could also filter for "Vanilla", "Sherbert", etc. when those holidays roll around.
@@ -168,7 +168,7 @@ DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem.
 
 hint - you can use the .includes method to help you solve this */
 
-function filterByWord(i){
+function filterByWord(originalFlavors, i){
 
     var chocolateOriginalFlavors = [];
     console.log(originalFlavors.includes(i));
@@ -182,7 +182,7 @@ function filterByWord(i){
         } else {
         }
     }
-    console.log(chocolateOriginalFlavors);
+    console.log(originalFlavors, chocolateOriginalFlavors);
 
 }
 filterByWord("Chocolate");
@@ -200,7 +200,7 @@ and should return the average number of words per item in the array.
 
 For example, getAverageWordLength(originalFlavors) should return a number between 0 and 3. */
 
-function getAverageWordLength(){
+function getAverageWordLength(originalFlavors){
 
     var averageWordsCount = 0 ;
     for (i = 0; i < originalFlavors.length; i++){
@@ -302,7 +302,7 @@ var regionalFlavors = ["Pink Bubblegum",
     "Chocolate Chocolate Chip Cheesecake",
     "Caramel 'n' Cookies"]
 
-function getRandomFlavors(/*code here*/){
+function getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors){
 
     var randomFlavors = [];
     var randomArrays = ["originalFlavors", "newFlavors", "seasonalFlavors", "regionalFlavors"]
@@ -329,4 +329,4 @@ function getRandomFlavors(/*code here*/){
 }
 
 
-getRandomFlavors();
+getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors);
